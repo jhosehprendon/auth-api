@@ -26,3 +26,11 @@ const port = process.env.PORT || 3090;
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on: ', port);
+
+app.use(express.static(__dirname));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client'))
+})
+
+app.listen(port);
