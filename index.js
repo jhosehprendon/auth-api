@@ -11,7 +11,7 @@ const cors = require('cors');
 
 
 //DB Setup
-mongoose.connect('mongodb://localhost:27017/auth');
+mongoose.connect('mongodb://Jhosehp:cerroelavila@ds031651.mlab.com:31651/jhosehp-auth-api');
 
 
 //App Setup
