@@ -8,7 +8,7 @@ const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+const path = require('path');
 
 //DB Setup
 mongoose.connect('mongodb://Jhosehp:cerroelavila@ds031651.mlab.com:31651/jhosehp-auth-api');
@@ -30,7 +30,7 @@ console.log('Server listening on: ', port);
 app.use(express.static(__dirname));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client'))
-})
+    res.sendFile(path.resolve(__dirname, "index.html"))
+});
 
-app.listen(port);
+
