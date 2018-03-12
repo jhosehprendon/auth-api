@@ -11,8 +11,8 @@ const cors = require('cors');
 const path = require('path');
 
 //DB Setup
-mongoose.connect('mongodb://Jhosehp:cerroelavila@ds031651.mlab.com:31651/jhosehp-auth-api');
-
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://jhosehp:123@ds031651.mlab.com:31651/jhosehp-auth-api');
+// mongodb://localhost:27017/auth
 
 //App Setup
 app.use(morgan('combined'));
@@ -27,10 +27,6 @@ const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on: ', port);
 
-app.use(express.static(__dirname));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '/'))
-});
 
 
